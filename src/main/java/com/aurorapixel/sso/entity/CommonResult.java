@@ -1,4 +1,4 @@
-package com.aurorapixel.sso.dto;
+package com.aurorapixel.sso.entity;
 
 import lombok.Data;
 

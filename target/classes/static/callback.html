@@ -34,7 +34,7 @@
       // 提交
       const redirectUri = 'http://127.0.0.1:8080/callback.html'; // 需要修改成，你回调的地址，就是在 index.html 拼接的 redirectUri
       $.ajax({
-        url:  "http://127.0.0.1:18080/auth/login-by-code?code=" + code
+        url:  "http://127.0.0.1:8080/auth/login-by-code?code=" + code
           + '&redirectUri=' + redirectUri,
         method: 'POST',
         success: function( result ) {

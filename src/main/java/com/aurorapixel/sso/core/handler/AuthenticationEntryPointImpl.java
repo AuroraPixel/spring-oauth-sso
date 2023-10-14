@@ -2,7 +2,7 @@ package com.aurorapixel.sso.core.handler;
 
 import cn.hutool.http.HttpStatus;
 import com.aurorapixel.sso.core.utils.ServletUtil;
-import com.aurorapixel.sso.dto.CommonResult;
+import com.aurorapixel.sso.entity.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

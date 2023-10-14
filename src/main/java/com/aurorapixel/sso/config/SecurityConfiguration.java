@@ -1,5 +1,6 @@
 package com.aurorapixel.sso.config;
 
+import com.aurorapixel.sso.core.fiter.AuthenticationFilter;
 import com.aurorapixel.sso.core.handler.AccessDeniedHandlerImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +25,9 @@ public class SecurityConfiguration {
     @Resource
     private AuthenticationEntryPoint authenticationEntryPoint;
 
+    @Resource
+    private AuthenticationFilter authenticationFilter;
+
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         // 设置 URL 安全权限
@@ -42,6 +46,9 @@ public class SecurityConfiguration {
         // 设置异常处理器
         httpSecurity.exceptionHandling().accessDeniedHandler(accessDeniedHandler)
                 .authenticationEntryPoint(authenticationEntryPoint);
+
+        // 添加请求前过滤器
+        httpSecurity.addFilterBefore(authenticationFilter,UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }
